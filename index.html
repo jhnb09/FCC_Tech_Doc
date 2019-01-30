@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Technical Documentation on AD9512</title>
+	<link rel="stylesheet" href="main_css.css">
+	<script defer src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+</head>
+<body>
+<nav id="navbar">
+	<header>
+		<h1>AD9512 - Multiphase Clock Generator</h1>
+	</header>
+	<p><a class="nav-link" href="#FEATURES">FEATURES</a></p>
+	<p><a class="nav-link" href="#APPLICATIONS">APPLICATIONS</a></p>
+	<p><a class="nav-link" href="#General_Description">General Description</a></p>
+	<p><a class="nav-link" href="#POWER_SUPPLY">POWER SUPPLY</a></p>
+	<p><a class="nav-link" href="#ESD_CAUTION">ESD CAUTION</a></p>
+</nav>
+
+<main id="main-doc">
+	<section class="main-section" id="FEATURES">
+		<header>
+			<h2>FEATURES</h2>
+		</header>
+		<ul>
+			<li>Two 1.6 GHz, differential clock inputs</li>
+			<li>5 programmable dividers, 1 to 32, all integers</li>
+			<li>Phase select for output-to-output coarse delay adjust</li>
+			<li>3 independent 1.2 GHz LVPECL outputs
+				<ul>Additive output jitter 225 fs rms</ul>
+			</li>
+			<li>2 independent 800 MHz/250 MHz LVDS/CMOS clock outputs
+				<ul>Additive output jitter 275 fs rms</ul>
+				<ul>Fine delay adjust on 1 LVDS/CMOS output</ul>
+			</li>
+			<li>Serial control port</li>
+			<li>Space-saving 48-lead LFCSP</li>
+		</ul>
+	</section>
+	<section class="main-section" id="APPLICATIONS">
+		<header>
+			<h2>APPLICATIONS</h2>
+		</header>
+		<code>Low jitter, low phase noise clock distribution </code>
+		<code>Clocking high speed ADCs, DACs, DDSs, DDCs, DUCs, MxFEs </code>
+		<code>High performance wireless transceivers </code>
+		<code>High performance instrumentation </code>
+		<code>Broadband infrastructure </code>
+	</section>
+	<section class="main-section" id="General_Description">
+		<header>
+			<h2>General Description</h2>
+		</header>
+		<p>
+			The AD9512 provides a multi-output clock distribution in a
+			design that emphasizes low jitter and low phase noise to
+			maximize data converter performance. Other applications with
+			demanding phase noise and jitter requirements can also benefit
+			from this part.
+		</p>
+		<p>
+			There are five independent clock outputs. Three outputs are
+			LVPECL (1.2 GHz), and two are selectable as either LVDS
+			(800 MHz) or CMOS (250 MHz) levels.
+		</p>
+		<p>
+			Each output has a programmable divider that may be bypassed
+			or set to divide by any integer up to 32. The phase of one clock
+			output relative to another clock output may be varied by means
+			of a divider phase select function that serves as a coarse timing
+			adjustment.
+		</p>
+		<p>
+			One of the LVDS/CMOS outputs features a programmable
+			delay element with a range of up to 10 ns of delay. This fine
+			tuning delay block has 5-bit resolution, giving 32 possible delays
+			from which to choose.
+		</p>
+		<p>
+			The AD9512 is ideally suited for data converter clocking
+			applications where maximum converter performance is
+			achieved by encode signals with subpicosecond jitter.
+			The AD9512 is available in a 48-lead LFCSP and can be
+			operated from a single 3.3 V supply. The temperature range is
+			−40°C to +85°C.
+		</p>
+	</section>
+	<section class="main-section" id="POWER_SUPPLY">
+		<header>
+			<h2>POWER SUPPLY</h2>
+		</header>
+		<p>
+			The AD9512 requires a 3.3 V ± 5% power supply for V S .
+			The tables in the Specifications section give the performance
+			expected from the AD9512 with the power supply voltage
+			within this range. The absolute maximum range of −0.3 V to
+			+3.6 V, with respect to GND, must never be exceeded on
+			the VS pin.
+		</p>
+		<p>Good engineering practice should be followed in the layout of
+			power supply traces and ground plane of the PCB. The power
+			supply should be bypassed on the PCB with adequate
+			capacitance (>10 μF). The AD9512 should be bypassed with
+			adequate capacitors (0.1 μF) at all power pins, as close as
+			possible to the part. The layout of the AD9512 evaluation board
+			(AD9512/PCB) is a good example.
+		</p>
+		<p>The AD9512 is a complex part that is programmed for its
+			desired operating configuration by on-chip registers. These
+			registers are not maintained over a shutdown of external power.
+			This means that the registers can lose their programmed values
+			if V S is lost long enough for the internal voltages to collapse.
+			Careful bypassing should protect the part from memory loss
+			under normal conditions. Nonetheless, it is important that the
+			V S power supply not become intermittent, or the AD9512 risks
+			losing its programming.
+		</p>
+		<p>
+			The internal bias currents of the AD9512 are set by the R SET
+			resistors. This resistor should be as close as possible to the value
+			given as conditions in the Specifications section
+			(R SET = 4.12 kΩ). This is a standard 1% resistor value and should
+			be readily obtainable. The bias currents set by this resistor
+			determine the logic levels and operating conditions of the
+			internal blocks of the AD9512. The performance figures given
+			in the Specifications section assume that this specific resistor
+			value is used.
+		</p>
+	</section>
+	<section class="main-section" id="ESD_CAUTION">
+		<header>
+			<h2>ESD CAUTION</h2>
+		</header>
+		<p>
+			ESD (electrostatic discharge) sensitive device. Electrostatic charges as high as 4000 V readily accumulate
+			on
+			the human body and test equipment and can discharge without detection. Although this product features
+			proprietary ESD protection circuitry, permanent damage may occur on devices subjected to high energy
+			electrostatic discharges. Therefore, proper ESD precautions are recommended to avoid performance
+			degradation or loss of functionality.
+		</p>
+	</section>
+</main>
+</body>
+</html>

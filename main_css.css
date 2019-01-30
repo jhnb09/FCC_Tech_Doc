@@ -1,0 +1,24 @@
+@media (min-width: 800px) {
+	nav {
+		background-color: cadetblue;
+		height: 100%;
+		width: 15%;
+		position: fixed;
+		left: 0px;
+		top: 0px;
+	}
+}
+
+main {
+	position: absolute;
+	left: 20%;
+}
+
+code {
+	display: flex;
+	width: 40%;
+	border-radius: 10px;
+	border: antiquewhite;
+	border-style: groove;
+	padding: 10px;
+}
